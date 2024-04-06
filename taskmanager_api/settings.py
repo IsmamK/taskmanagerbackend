@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-!+et!5&bst(oh)1_g_udoug)x#!!ha4)fzm=44gf)q#(!(+mo=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ismamk.pythonanywhere.com']
+ALLOWED_HOSTS = ["https://ismamk.pythonanywhere.com/"]
 
 
 # Application definition
@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     'rest_framework.authtoken',
+    'corsheaders',
     'djoser',
     "api",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -54,6 +56,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
 
 ROOT_URLCONF = "taskmanager_api.urls"
 
